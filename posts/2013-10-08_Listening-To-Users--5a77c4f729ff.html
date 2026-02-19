@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listening To Users. — Kamil Rextin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23DFFE68'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui' font-size='16' font-weight='800' fill='%231a1a1a'>K</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.7;
+      background: #fff;
+    }
+    ::selection { background: #DFFE68; }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: #6b6b6b;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .back:hover { color: #1a1a1a; }
+    h1, h2, h3, h4 { font-weight: 600; margin: 2em 0 0.5em; line-height: 1.3; }
+    h1 { font-size: 1.75rem; margin-top: 0; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    p { margin-bottom: 1.5em; color: #333; }
+    a { color: #1a1a1a; }
+    img { max-width: 100%; height: auto; margin: 2em 0; border-radius: 4px; }
+    figure { margin: 2em 0; }
+    figcaption { font-size: 0.875rem; color: #6b6b6b; margin-top: 0.5em; }
+    ul, ol { margin: 0 0 1.5em 1.5em; }
+    li { margin-bottom: 0.5em; }
+    blockquote { border-left: 3px solid #DFFE68; padding-left: 1em; margin: 1.5em 0; font-style: italic; color: #4a4a4a; }
+    hr { border: none; border-top: 1px solid #e5e5e5; margin: 2em 0; }
+    code { background: #f5f5f5; padding: 0.2em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    pre { background: #f5f5f5; padding: 1em; border-radius: 4px; overflow-x: auto; margin: 1.5em 0; }
+    .section-divider { display: none; }
+    .graf--title { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="/writing.html" class="back">← Writing</a>
+    <article>
+      <h1>Listening To Users.</h1>
+<section data-field="body" class="e-content">
+<section name="4a16" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--fullWidth"><figure class="graf graf--figure graf--layoutFillWidthCroppedCover graf--leading"><img class="graf-image" data-image-id="0*uFdhWANnmXjhx-aO.png" data-width="1400" data-height="588" src="https://cdn-images-1.medium.com/fit/t/NaN/NaN/0*uFdhWANnmXjhx-aO.png"><figcaption class="imageCaption">Attempts at UI Design. Obviously I have a long way to go. </figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><h2 name="title" id="title" class="graf graf--h2 graf-after--figure graf--title">Listening To Users.</h2><h4 name="subtitle" id="subtitle" class="graf graf--h4 graf-after--h2 graf--subtitle">How a basic app taught me what it means.</h4><p name="42a9" id="42a9" class="graf graf--p graf-after--h4">Don’t try to control how users use your app<em class="markup--em markup--p-em">.</em></p><p name="633f" id="633f" class="graf graf--p graf-after--p">Couple of months ago, I built an Android App with my conspirator Muhammad Ali. The premise was simple based on two principles:</p><p name="105a" id="105a" class="graf graf--p graf-after--p">1) Text messaging still plays a big part of our lives despite the fancy smartphones we we all carry around in your our pockets. But text messages are perishable.</p><p name="76d1" id="76d1" class="graf graf--p graf-after--p">2) The both him and I used to get text messages from our parents every time we were out of the house to get something on our way home.</p><p name="0e4f" id="0e4f" class="graf graf--p graf-after--p">The problem — I read the text message and I would forget. Text messages cant be as marked as unread (which is something I love doing in Gmail whenever there is something I want to respond to or work on later)</p><p name="c3a0" id="c3a0" class="graf graf--p graf-after--p">So we created <a href="https://play.google.com/store/apps/details?id=com.ideasrefined.bringlist&amp;hl=en" data-href="https://play.google.com/store/apps/details?id=com.ideasrefined.bringlist&amp;hl=en" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">BringList</a>- a simple app that creates a sticky notification in your android task bar whenever you get a message that starting with Bring followed by items. For example Bring eggs,milk butter bread etc. would tell BringList to make a list of items containing eggs, milk &amp; butter.The fun (or annoying) part is that until you go into the app and delete every item one by one the notification wont go away. The assumption was that every time you looked at your phone screen you would see a tiny B in the corner always reminding you got you got some items to bring/grab or buy. That in theory would force you to go into the app and check the items.</p><blockquote name="dba3" id="dba3" class="graf graf--pullquote graf-after--p">Remembrance by Repetition.</blockquote><p name="43b5" id="43b5" class="graf graf--p graf-after--pullquote">We launched with a very early version to validate our assumption and we got some downloads (150 at last count) and we were satisfied enough to consider doing a V-2.</p><p name="2562" id="2562" class="graf graf--p graf-after--p">But then something surprising happened. We had built this app strictly or ‘grocery’ purposes but a friend of mine emailed me saying how he loved to use BringList a a as a to-do list app.</p><p name="a6ba" id="a6ba" class="graf graf--p graf-after--p">What! What? To- Do list? That wasn&#39;t our intended purpose. It is so far from what we thought was our core use case that we didn&#39;t even consider it.</p><p name="9a75" id="9a75" class="graf graf--p graf-after--p">What he does is text himself all the items he needs to do for the day. E.g Bring Finish marking papers, work on research paper, grab groceries,email X etc — He is a professor so his to-do list probably revolves more around research and marking then mine.</p><p name="f55f" id="f55f" class="graf graf--p graf-after--p">We or at least I did not see that coming. BringList wasn&#39;t designed for that purpose but my friend was tired of using overcomplicated to-do apps (I have to ask him if he used Any.Do) so he simply re-purposed the app to fit is his need for a simple to-do app. No fancy reminders, no fancy UI. Just a simple text message.</p><p name="75b0" id="75b0" class="graf graf--p graf-after--p">This was interesting enough to set about to re-work the app to support this a little more. Texting yourself “Bring” while you want to “Do” isn&#39;t very elegant.</p><p name="b9a8" id="b9a8" class="graf graf--p graf-after--p graf--trailing">The point of this story — we all hear this all the time in blogs and talks by success full founders. Always be listening to your users. But this was the first time in my limited experience with startups that I had actually been surprised or really understood the depth of the simple statement ‘listen to your users’ — albeit the user in question is a close friend and he was happy enough to tell me. Alot of people wont bother telling you what they do or what they don’t like unless you ask nicely or one can always utilize analytic tools like MixPanel and create custom events.</p></div></div></section><section name="a3f1" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="f800" id="f800" class="graf graf--p graf--leading graf--trailing">Written with the help of <a href="http://helpmewrite.co/people/carolineggordon/ideas" data-href="http://helpmewrite.co/people/carolineggordon/ideas" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Caroline Gordon</a></p></div></div></section>
+</section>
+    </article>
+  </main>
+</body>
+</html>

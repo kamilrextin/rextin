@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create an Account Suppression List in Marketo. — Kamil Rextin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23DFFE68'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui' font-size='16' font-weight='800' fill='%231a1a1a'>K</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.7;
+      background: #fff;
+    }
+    ::selection { background: #DFFE68; }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: #6b6b6b;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .back:hover { color: #1a1a1a; }
+    h1, h2, h3, h4 { font-weight: 600; margin: 2em 0 0.5em; line-height: 1.3; }
+    h1 { font-size: 1.75rem; margin-top: 0; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    p { margin-bottom: 1.5em; color: #333; }
+    a { color: #1a1a1a; }
+    img { max-width: 100%; height: auto; margin: 2em 0; border-radius: 4px; }
+    figure { margin: 2em 0; }
+    figcaption { font-size: 0.875rem; color: #6b6b6b; margin-top: 0.5em; }
+    ul, ol { margin: 0 0 1.5em 1.5em; }
+    li { margin-bottom: 0.5em; }
+    blockquote { border-left: 3px solid #DFFE68; padding-left: 1em; margin: 1.5em 0; font-style: italic; color: #4a4a4a; }
+    hr { border: none; border-top: 1px solid #e5e5e5; margin: 2em 0; }
+    code { background: #f5f5f5; padding: 0.2em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    pre { background: #f5f5f5; padding: 1em; border-radius: 4px; overflow-x: auto; margin: 1.5em 0; }
+    .section-divider { display: none; }
+    .graf--title { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="/writing.html" class="back">← Writing</a>
+    <article>
+      <h1>Create an Account Suppression List in Marketo.</h1>
+<section data-field="body" class="e-content">
+<section name="f6df" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4b83" id="4b83" class="graf graf--h3 graf--leading graf--title">Create an Account Suppression List in Marketo.</h3><p name="dc30" id="dc30" class="graf graf--p graf-after--h3">As with any system, there’s learning curves and pleasant surprises. Some come after a while of head banging against table, while others present themselves more gracefully.</p><p name="6943" id="6943" class="graf graf--p graf-after--p">After moving to Marketo and getting the basics up and running we ran into some challenges.</p><p name="5edf" id="5edf" class="graf graf--p graf-after--p">In an effort to optimize the spend of our demand generation programs, we needed to ensure that we weren’t duplicating leads from Accounts &amp; Customers that were already won or at 90% in the Opp stage. There’s a case to be made for expanding current accounts but for now we wanted to ensure we’re not wasting our money getting more leads from accounts that are customers.</p><p name="7bd6" id="7bd6" class="graf graf--p graf-after--p">To create a ‘check’ against leads from existing accounts &amp; customers, first step is to create a suppression list of domains. Easy enough in Marketo — create a smart list of all current customers or ‘Opps’ that have been won and download it as an excel file. Use a formula like” <strong class="markup--strong markup--p-strong">=</strong><a href="https://exceljet.net/excel-functions/excel-RIGHT-function" data-href="https://exceljet.net/excel-functions/excel-RIGHT-function" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong">RIGHT</strong></a><strong class="markup--strong markup--p-strong">(email,</strong><a href="https://exceljet.net/excel-functions/excel-LEN-function" data-href="https://exceljet.net/excel-functions/excel-LEN-function" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong">LEN</strong></a><strong class="markup--strong markup--p-strong">(email)-</strong><a href="https://exceljet.net/excel-functions/excel-FIND-function" data-href="https://exceljet.net/excel-functions/excel-FIND-function" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong">FIND</strong></a><strong class="markup--strong markup--p-strong">(“@”,email)) to get the domains from a list of emails.</strong></p><p name="d3d1" id="d3d1" class="graf graf--p graf-after--p">Now you have a domain suppression list.</p><p name="b79f" id="b79f" class="graf graf--p graf-after--p">Now for the fun part. Within Marketo, you can’t directly set up a script that says:</p><p name="ee11" id="ee11" class="graf graf--p graf--startsWithSingleQuote graf-after--p">‘Anytime a new lead is created in the system, check against these domains to see if it already exists and then flag it’</p><p name="d236" id="d236" class="graf graf--p graf-after--p">But you can create something that does that using Programs &amp; Smart campaigns:</p><ol class="postList"><li name="0181" id="0181" class="graf graf--li graf-after--p">Create a Smart Campaign. Call it ‘existing opp/customer check’</li><li name="f4b9" id="f4b9" class="graf graf--li graf-after--li">Add a trigger ‘Person Created’ so it fires everytime a new person is created. This is important otherwise you’ll have to set it on a recurring schedule. Marketo smart campaigns need a trigger to fire automagically.</li><li name="ecc6" id="ecc6" class="graf graf--li graf-after--li">Create a condition based on how you upload/add leads to your Marketo instance. In our case, we add them to Channel Master Lists. So the condition is ‘If person was added to list within the last 30 days’.</li></ol><p name="80d7" id="80d7" class="graf graf--p graf-after--li">This is the bit where you check against domains.</p><p name="57ae" id="57ae" class="graf graf--p graf-after--p">Note: Since within Marketo you can check with ‘contains’ you should concatenate ‘@’ before the domains. Otherwise if by random chance someone’s name is the same as a domain name on your list, it would flag those as well.</p><p name="4a99" id="4a99" class="graf graf--p graf-after--p">In the flow step:</p><ol class="postList"><li name="9b42" id="9b42" class="graf graf--li graf-after--p">Add ‘Add to List’</li><li name="c504" id="c504" class="graf graf--li graf-after--li">Create a condition within ‘Add to List”</li><li name="0852" id="0852" class="graf graf--li graf-after--li">If ‘email address’ contains (copy paste list of domains with @ appended before them)</li><li name="f10e" id="f10e" class="graf graf--li graf-after--li">Create a local program list and set the flow step to add them to the list.</li></ol><p name="9f14" id="9f14" class="graf graf--p graf-after--li">Here’s what happens. If a person is created in Marketo, it will fire the smart campaign to check if the email address contains the @domain from your suppression list. If yes, they get routed to the list.</p><p name="41d4" id="41d4" class="graf graf--p graf-after--p">Questions? kamil[dot]rextin[at]gmail[dot]com</p><p name="a24a" id="a24a" class="graf graf--p graf-after--p graf--trailing">Written in collaboration with Sibil Samuel and Tara Robertson.</p></div></div></section>
+</section>
+    </article>
+  </main>
+</body>
+</html>

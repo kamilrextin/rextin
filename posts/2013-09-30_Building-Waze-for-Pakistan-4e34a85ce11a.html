@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building Waze for Pakistan — Kamil Rextin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23DFFE68'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui' font-size='16' font-weight='800' fill='%231a1a1a'>K</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.7;
+      background: #fff;
+    }
+    ::selection { background: #DFFE68; }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: #6b6b6b;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .back:hover { color: #1a1a1a; }
+    h1, h2, h3, h4 { font-weight: 600; margin: 2em 0 0.5em; line-height: 1.3; }
+    h1 { font-size: 1.75rem; margin-top: 0; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    p { margin-bottom: 1.5em; color: #333; }
+    a { color: #1a1a1a; }
+    img { max-width: 100%; height: auto; margin: 2em 0; border-radius: 4px; }
+    figure { margin: 2em 0; }
+    figcaption { font-size: 0.875rem; color: #6b6b6b; margin-top: 0.5em; }
+    ul, ol { margin: 0 0 1.5em 1.5em; }
+    li { margin-bottom: 0.5em; }
+    blockquote { border-left: 3px solid #DFFE68; padding-left: 1em; margin: 1.5em 0; font-style: italic; color: #4a4a4a; }
+    hr { border: none; border-top: 1px solid #e5e5e5; margin: 2em 0; }
+    code { background: #f5f5f5; padding: 0.2em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    pre { background: #f5f5f5; padding: 1em; border-radius: 4px; overflow-x: auto; margin: 1.5em 0; }
+    .section-divider { display: none; }
+    .graf--title { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="/writing.html" class="back">← Writing</a>
+    <article>
+      <h1>Building Waze for Pakistan</h1>
+<section data-field="body" class="e-content">
+<section class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--fullWidth"><figure class="graf graf--figure graf--layoutFillWidthCroppedCover graf--leading"><img class="graf-image" data-image-id="0*ndr5-OB14AU2f1Kz.jpeg" data-width="2000" data-height="795" src="https://cdn-images-1.medium.com/fit/t/NaN/NaN/0*ndr5-OB14AU2f1Kz.jpeg"><figcaption class="imageCaption">Photo credit — Aisha Linea Akhtar</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><h2 name="title" id="title" class="graf graf--h2 graf-after--figure graf--title">Building Waze for Pakistan</h2><h4 name="subtitle" id="subtitle" class="graf graf--h4 graf-after--h2 graf--subtitle">Why a non-venture backed startup failed</h4><p name="3392" id="3392" class="graf graf--p graf-after--h4">Not to long ago I was on the phone with a good friend and co-conspirator of mine — we were bouncing idea’s back and forth on potential ventures we could do aimed towards Pakistan. 3 years ago M.Ali had built a very neat traffic reporting service. This was a low tech version of traffic and incident reporting over text message, web &amp; Twitter. Before we even knew there was such a thing ( later found out via Google about Waze) and Pakistan being a feature phone country by majority this made sense. Being pragmatists we named it ‘Traffic Pakistan’. The idea was simple, Pakistani roads are horrible and often get congested. With more cars and less roads it was highly likely you’d get stuck in a traffic jam somewhere around town. Other then the road conditions and massive amount of population, it was also highly possible (if you were in Islamabad [the Federal Capital City]) that a VIP/General/PM/Diplomat was passing through and the Police had shut off all roads within a 10 KM radius of the movement.</p><p name="efb3" id="efb3" class="graf graf--p graf-after--p">The first iteration of the solution — M.Ali built a Twitter parser that would look for tweets with #trafficislamabad #traffickarachi #trafficlahore #traffic(insert city) and reroute those to a website thus providing a ‘real time’ traffic update. An SMS server would run in parallel using the same # structure using our personal cell number. We gave people options on how they wanted to update and feed the data. We had plans.<strong class="markup--strong markup--p-strong">Big plans. </strong>I was going to get early users on it to get the data flow going. If it worked the next step was to get an SMS short code and enable the same # service over SMS. We were going to integrate our service or make it available on <a href="http://www.pringit.com/" data-href="http://www.pringit.com/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Pring</a>. You as a user could then ‘subscribe’ to specific city/location/neighborhood updates and plan your route before the day started. You see Google Maps doesn’t have traffic updates for Pakistan and numerous ‘points of interest’ aren’t even on it. Yes.</p><p name="1c5f" id="1c5f" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">It was a brilliant idea!<br></strong>We ‘launched’ — which back then meant I emailed, texted, Facebook messaged all my Gmail contacts/Facebook Contacts and tweeted the living Jesus out of it. Nothing happened. It is UNBELIEVABLY hard to get all your Facebook/LinkedIn/Gmail/Twitter contacts to actually use something. I begged them. I pleaded. I offered chocolates and some of them agreed to start using it. They were intrigued and curious. But then it stopped. The only ‘updates’ on the site were from M.Ali. I was in Waterloo/Kitchener at that time so I couldn’t even tweet any updates even if I wanted to. That would just be false information and misleading. I checked. Every day. Every Morning. Every Night. The activity stream started looking bleaker and bleaker. Eventually even M.Ali stopped giving updates. Seemed like lost cause.</p><p name="73d9" id="73d9" class="graf graf--p graf-after--p">So we <em class="markup--em markup--p-em">shut Traffic Pakistan down.</em><strong class="markup--strong markup--p-strong"><br>- — — — -<br>So where did we go wrong?</strong><br>On the surface we had developed Traffic Pakistan as a solution to a problem we both had. We knew our friends had it. Our friends of friends had it. The technology was simple enough to be easy. The implementation was simple to be not intimidating. <a href="http://www.forbes.com/sites/china/2010/09/12/how-ebay-failed-in-china/" data-href="http://www.forbes.com/sites/china/2010/09/12/how-ebay-failed-in-china/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">What we didn’t count for was the culture</a>. Pakistan’s culture is not around crowd-sourcing and we’re not that tech savvy (<a href="http://www.quora.com/E-Commerce/Shopping-online-using-credit-card-in-Pakistan-is-still-very-scary-for-most-people-Is-the-system-really-complicated-and-risky-or-is-it-just-the-perception-or-lack-of-awareness-among-the-people" data-href="http://www.quora.com/E-Commerce/Shopping-online-using-credit-card-in-Pakistan-is-still-very-scary-for-most-people-Is-the-system-really-complicated-and-risky-or-is-it-just-the-perception-or-lack-of-awareness-among-the-people" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Credit Cards are not the norm for various reasons</a>). Our entire product was hinged on people being kind enough to take the time to send the update to help fellow commuters. We needed a strong, very strong community around the product or partner with the Traffic Police in respective cities. We did not have the cash to pay people to stand at various points around the city. We did not have enough cash to provide an incentive to the users to send updates. We could have gamified it but I doubt that would have worked.</p><p name="b873" id="b873" class="graf graf--p graf-after--p">The other part of Traffic Pakistan relied on Twitter. Perhaps if the telecom companies had been kind enough to issue us a short code without making us jump through hoops and a tiny fortune we would have had something. Pakistan is not big on Tweeting except when Facebook gets blocked [<a href="http://www.mymfb.com/" data-href="http://www.mymfb.com/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">which also spawns local Facebook clones</a>]. There was some SMS to Twitter services that I used to use while in Pakistan and still new to Twitter in the early days. Twitter didn’t have a short code for Pakistan in those days.</p><p name="b670" id="b670" class="graf graf--p graf-after--p">But most of all we needed to partner with the local authorities to actually get the mass adoption. Since I was in Canada, there was only so much I could do while sitting here. I needed to be there, on the ground, knocking doors, calling, setting up meetings, driving the marketing/adoption engine. There is only so much I can do over the phone/Google Docs/Gmail/<a href="http://www.streak.com/" data-href="http://www.streak.com/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Streak</a>.</p><p name="fbe2" id="fbe2" class="graf graf--p graf-after--p"><a href="http://techcrunch.com/2013/06/11/its-official-google-buys-waze-giving-a-social-data-boost-to-its-location-and-mapping-business/" data-href="http://techcrunch.com/2013/06/11/its-official-google-buys-waze-giving-a-social-data-boost-to-its-location-and-mapping-business/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">When Waze got acquired by Google</a>, my first email was to M.Ali. Calling would have been awkward, it was past midnight there. With a heavy heart, I wrote something about the acquisition and how ‘it could have been us &amp; Traffic Pakistan’. Calm and reasonable as he is, Ali simply said that could never have been us. We had a long way to go but that proves that our product had some legs.</p><p name="5bf7" id="5bf7" class="graf graf--p graf-after--p">A recent Facebook update by M.Ali regarding ‘Islamabad Highway being blocked’ due to protests against a recent bombing in Peshawar prompted me to revisit Traffic Pakistan. As for the status update by Ali — I cheekily commented ‘Brought to you by Traffic Pakistan’ in tribute to what could have been or what it might be.</p><p name="069b" id="069b" class="graf graf--p graf-after--p graf--trailing"><strong class="markup--strong markup--p-strong">Afterthought</strong><br><a href="http://www.pakwheels.com/blog/2013/09/13/karachi-traffic-police-launches-sms-service-to-avoid-traffic-jams/" data-href="http://www.pakwheels.com/blog/2013/09/13/karachi-traffic-police-launches-sms-service-to-avoid-traffic-jams/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Recently I read about Karachi Police using their extensive man power and a SMS short code for the same purpose.</a><br>We are working on reviving the Traffic Pakistan service. If you are from Pakistan and would like to be part of it — please follow us <a href="https://twitter.com/trafficPakistan" data-href="https://twitter.com/trafficPakistan" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">@trafficPakistan</a>.</p></div></div></section><section name="f54c" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="528d" id="528d" class="graf graf--p graf--leading graf--trailing">This post also appeared on <a href="http://trango.co/start-watch-traffic-pakistan/" data-href="http://trango.co/start-watch-traffic-pakistan/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Trango</a></p></div></div></section>
+</section>
+    </article>
+  </main>
+</body>
+</html>
