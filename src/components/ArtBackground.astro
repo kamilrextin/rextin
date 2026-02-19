@@ -1,0 +1,71 @@
+---
+// Collection of art pieces - classic and abstract works that make good subtle backgrounds
+const artworks = [
+  {
+    id: "monet-water-lilies",
+    url: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=1920&q=80",
+    artist: "Claude Monet style"
+  },
+  {
+    id: "abstract-blue",
+    url: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1920&q=80",
+    artist: "Abstract"
+  },
+  {
+    id: "abstract-gradient",
+    url: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=1920&q=80",
+    artist: "Abstract gradient"
+  },
+  {
+    id: "abstract-paint",
+    url: "https://images.unsplash.com/photo-1549490349-8643362247b5?w=1920&q=80",
+    artist: "Abstract paint"
+  },
+  {
+    id: "abstract-marble",
+    url: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1920&q=80",
+    artist: "Abstract marble"
+  },
+  {
+    id: "geometric",
+    url: "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=1920&q=80",
+    artist: "Geometric"
+  },
+  {
+    id: "watercolor",
+    url: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1920&q=80",
+    artist: "Abstract watercolor"
+  },
+  {
+    id: "minimal-shapes",
+    url: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1920&q=80",
+    artist: "Minimal shapes"
+  }
+]
+---
+
+<div id="art-background" class="fixed inset-0 -z-10 overflow-hidden">
+  <div
+    id="art-image"
+    class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+    style="opacity: 0;"
+  ></div>
+  <div class="absolute inset-0 bg-white/85"></div>
+</div>
+
+<script define:vars={{ artworks }}>
+  // Pick a random artwork on page load
+  const randomIndex = Math.floor(Math.random() * artworks.length)
+  const artwork = artworks[randomIndex]
+
+  const artImage = document.getElementById('art-image')
+  if (artImage) {
+    // Preload the image
+    const img = new Image()
+    img.onload = () => {
+      artImage.style.backgroundImage = `url(${artwork.url})`
+      artImage.style.opacity = '1'
+    }
+    img.src = artwork.url
+  }
+</script>
