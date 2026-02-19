@@ -50,7 +50,12 @@ const artworks = [
     class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
     style="opacity: 0;"
   ></div>
-  <div class="absolute inset-0 bg-white/85"></div>
+  <div id="art-overlay" class="absolute inset-0 bg-white/90 transition-opacity duration-1000"></div>
+</div>
+
+<!-- Konami code message -->
+<div id="konami-message" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-[#1a1a1a] text-white text-sm rounded-lg opacity-0 transition-opacity duration-500 pointer-events-none z-50">
+  You found it.
 </div>
 
 <script define:vars={{ artworks }}>
@@ -60,7 +65,6 @@ const artworks = [
 
   const artImage = document.getElementById('art-image')
   if (artImage) {
-    // Preload the image
     const img = new Image()
     img.onload = () => {
       artImage.style.backgroundImage = `url(${artwork.url})`
@@ -68,4 +72,37 @@ const artworks = [
     }
     img.src = artwork.url
   }
+
+  // Konami code: ↑↑↓↓←→←→BA
+  const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA']
+  let konamiIndex = 0
+  let konamiActivated = false
+
+  document.addEventListener('keydown', (e) => {
+    if (konamiActivated) return
+
+    if (e.code === konamiCode[konamiIndex]) {
+      konamiIndex++
+      if (konamiIndex === konamiCode.length) {
+        konamiActivated = true
+
+        // Reveal the art
+        const overlay = document.getElementById('art-overlay')
+        const message = document.getElementById('konami-message')
+
+        if (overlay) {
+          overlay.style.opacity = '0'
+        }
+
+        if (message) {
+          message.style.opacity = '1'
+          setTimeout(() => {
+            message.style.opacity = '0'
+          }, 3000)
+        }
+      }
+    } else {
+      konamiIndex = 0
+    }
+  })
 </script>
