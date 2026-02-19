@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kamil Rextin</title>
+  <meta name="description" content="Founder of 42 Agency, 42Slash, and Marvin. Building at the intersection of AI and B2B marketing.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23DFFE68'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui' font-size='16' font-weight='800' fill='%231a1a1a'>K</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    ::selection {
+      background: #DFFE68;
+    }
+
+    /* Background art */
+    #art-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    #art-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: rgba(255,255,255,0.92);
+      transition: opacity 1s;
+    }
+
+    main {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #4a4a4a;
+      margin-bottom: 24px;
+    }
+
+    a {
+      color: #1a1a1a;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #6b6b6b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    ul li {
+      margin-bottom: 4px;
+    }
+
+    .muted {
+      color: #6b6b6b;
+    }
+
+    .links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      padding-top: 24px;
+      margin-top: 24px;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.875rem;
+      color: #6b6b6b;
+    }
+
+    /* Konami message */
+    #konami-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a1a;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="art-bg"></div>
+  <div id="art-overlay"></div>
+  <div id="konami-msg">You found it.</div>
+
+  <main>
+    <h1>Kamil Rextin</h1>
+
+    <p>
+      I build companies and tools at the intersection of AI and B2B marketing.
+      Founder of <a href="https://42agency.com">42 Agency</a>,
+      <a href="#">42Slash</a>, and
+      <a href="#">Marvin</a>.
+    </p>
+
+    <p>
+      I spend most of my time thinking about how AI changes the way we do demand generation
+      and paid media. I write about B2B marketing, growth, and building companies.
+    </p>
+
+    <div class="section-label">Building</div>
+    <ul>
+      <li><a href="https://42agency.com">42 Agency</a> <span class="muted">— B2B demand generation and paid media</span></li>
+      <li><a href="#">42Slash</a> <span class="muted">— AI-powered marketing tools</span></li>
+      <li><a href="#">Marvin</a> <span class="muted">— AI assistant for marketing teams</span></li>
+    </ul>
+
+    <div class="section-label">Elsewhere</div>
+    <div class="links">
+      <a href="https://twitter.com/kamilrextin">X</a>
+      <a href="https://linkedin.com/in/kamilrextin">LinkedIn</a>
+      <a href="https://github.com/kamilrextin">GitHub</a>
+      <a href="https://medium.com/@kamilrextin">Writing</a>
+    </div>
+
+    <footer>Vancouver 🇨🇦</footer>
+  </main>
+
+  <script>
+    // Background art
+    const artworks = [
+      'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=1920&q=80',
+      'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1920&q=80',
+      'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=1920&q=80',
+      'https://images.unsplash.com/photo-1549490349-8643362247b5?w=1920&q=80',
+      'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1920&q=80',
+      'https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=1920&q=80',
+      'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1920&q=80',
+      'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1920&q=80'
+    ];
+
+    const art = artworks[Math.floor(Math.random() * artworks.length)];
+    const img = new Image();
+    img.onload = () => {
+      document.getElementById('art-bg').style.backgroundImage = `url(${art})`;
+      document.getElementById('art-bg').style.opacity = '1';
+    };
+    img.src = art;
+
+    // Konami code
+    const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];
+    let i = 0;
+    document.addEventListener('keydown', e => {
+      if (e.code === code[i]) {
+        i++;
+        if (i === code.length) {
+          document.getElementById('art-overlay').style.opacity = '0';
+          const msg = document.getElementById('konami-msg');
+          msg.style.opacity = '1';
+          setTimeout(() => msg.style.opacity = '0', 3000);
+        }
+      } else {
+        i = 0;
+      }
+    });
+  </script>
+</body>
+</html>
